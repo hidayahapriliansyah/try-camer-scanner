@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 import { Html5Qrcode, Html5QrcodeCameraScanConfig, Html5QrcodeResult } from "html5-qrcode";
 
