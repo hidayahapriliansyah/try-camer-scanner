@@ -45,7 +45,7 @@ const HTML5Try = () => {
 
   return (
     <div className="flex justify-center items-center mx-auto">
-      <div id="reader" className="w-[300px] mx-auto [transform:rotateY(180deg)]"></div>
+      <div id="reader" className="w-[300px] md:w-[400px] lg:w-[600px] mx-auto [transform:rotateY(180deg)]"></div>
     </div>
   )
 }
