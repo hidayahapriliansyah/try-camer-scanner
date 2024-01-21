@@ -25,6 +25,7 @@ const CameraComponent2: React.FC = () => {
         screenshotFormat="image/jpeg"
         width={1280}
         videoConstraints={videoConstraints}
+        mirrored={facingMode === 'user'}
       />
       <button onClick={toggleFacingMode}>
         Toggle Camera ({facingMode === 'user' ? 'Front' : 'Back'})
