@@ -35,7 +35,7 @@ const HTML5Try = () => {
     // }
     const config: Html5QrcodeCameraScanConfig = {
       fps: 10,
-      qrbox: { width: 250, height: 250 },
+      qrbox: { width: 200, height: 200 },
       disableFlip: false,
     };
 
@@ -44,13 +44,8 @@ const HTML5Try = () => {
   }, []);
 
   return (
-    <div>
-      <div className="flex justify-center items-center mx-auto w-[500px] scale-75 md:scale-75 lg:scale-100 overflow-hidden">
-        <div id="reader" className="w-[600px] mx-auto [transform:rotateY(180deg)]"></div>
-      </div>
-      <div className="flex justify-center items-center w-[300px] aspect-square bg-red-500 overflow-hidden">
-        <div className="bg-green-100 w-[600px] aspect-square"></div>
-      </div>
+    <div className="flex justify-center items-center mx-auto p-4 bg-red-700 md:scale-125 lg:scale-150">
+      <div id="reader" className="w-[300px] mx-auto [transform:rotateY(180deg)]"></div>
     </div>
   )
 }

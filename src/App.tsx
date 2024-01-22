@@ -1,4 +1,5 @@
 import './App.css'
+// import VanillaCamera from "./components/VanillaCamera";
 import HTML5Try from "./components/HTML5Try";
 // import Html5QrcodePlugin from "./components/Html5QrcodePlugin";
 // import Html5Scanner from "./components/HTML5Scanner";
@@ -19,6 +20,7 @@ function App() {
     //   qrCodeSuccessCallback={onNewScanResult}
     // />
     <HTML5Try />
+    // <VanillaCamera />
   );
 }
 
