@@ -1,9 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Html5Qrcode, Html5QrcodeCameraScanConfig, Html5QrcodeResult, QrcodeSuccessCallback } from "html5-qrcode";
 // import { Html5QrcodeError } from "html5-qrcode/esm/core";
 
 const HTML5Try = () => {
+  const [facingMode, setFacingMode] = useState<'user' | 'environment'>('user');
+  const toggleFacingMode = () => {
+    setFacingMode((prevFacingMode) =>
+      prevFacingMode === 'user' ? 'environment' : 'user'
+    );
+  };
   // const html5QrCode = new Html5Qrcode(
   //   "reader"
   // );
@@ -40,12 +46,18 @@ const HTML5Try = () => {
     };
 
     // If you want to prefer front camera
-    html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback, undefined);
-  }, []);
+    console.log('facing mode =>>', facingMode);
+    html5QrCode.start({ facingMode }, config, qrCodeSuccessCallback, undefined);
+  }, [facingMode]);
 
   return (
-    <div className="flex justify-center items-center mx-auto p-4 bg-red-700 md:scale-125 lg:scale-150">
-      <div id="reader" className="w-[300px] mx-auto [transform:rotateY(180deg)]"></div>
+    <div className="flex flex-col justify-center items-center h-fit aspect-square overflow-hidden">
+      <div className="block flex justify-center items-center mx-auto my-4 md:my-8 lg:my-16 p-1 bg-red-700 md:scale-125 lg:scale-150">
+        <div id="reader" className="block w-[300px] mx-auto [transform:rotateY(180deg)]"></div>
+      </div>
+      <button onClick={toggleFacingMode} className="mt-4 p-2 bg-blue-100">
+        Toggle Camera ({facingMode === 'user' ? 'Front' : 'Back'})
+      </button>
     </div>
   )
 }
