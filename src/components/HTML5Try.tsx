@@ -4,10 +4,10 @@ import { Html5Qrcode, Html5QrcodeCameraScanConfig, Html5QrcodeResult, QrcodeSucc
 // import { Html5QrcodeError } from "html5-qrcode/esm/core";
 
 const HTML5Try = () => {
-  const [facingMode, setFacingMode] = useState<'user' | 'environment'>('user');
+  const [facingMode, setFacingMode] = useState<'user' | { exact: "environment" }>('user');
   const toggleFacingMode = () => {
     setFacingMode((prevFacingMode) =>
-      prevFacingMode === 'user' ? 'environment' : 'user'
+      prevFacingMode === 'user' ? { exact: 'environment' } : 'user'
     );
   };
   // const html5QrCode = new Html5Qrcode(
