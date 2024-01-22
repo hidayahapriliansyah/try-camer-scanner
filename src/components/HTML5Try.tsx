@@ -52,7 +52,7 @@ const HTML5Try = () => {
 
   return (
     <div className="flex flex-col justify-center items-center h-fit aspect-square overflow-hidden">
-      <div className="block flex justify-center items-center mx-auto my-4 md:my-8 lg:my-16 p-1 bg-red-700 md:scale-125 lg:scale-150">
+      <div className="flex justify-center items-center mx-auto md:my-8 lg:my-16 p-1 bg-red-700 md:scale-125 lg:scale-150">
         <div id="reader" className="block w-[300px] mx-auto [transform:rotateY(180deg)]"></div>
       </div>
       <button onClick={toggleFacingMode} className="mt-4 p-2 bg-blue-100">
