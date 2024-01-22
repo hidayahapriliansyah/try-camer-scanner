@@ -11,62 +11,49 @@ const HTML5Try = () => {
       prevFacingMode === 'user' ? 'environment' : 'user'
     );
   };
+  // const html5QrCode = new Html5Qrcode(
+  //   "reader"
+  // );
+  // const qrCodeSuccessCallback = (decodedText: string, decodedResult: Html5QrcodeResult) => {
+  //   /* handle success */
+  //   console.log(decodedResult, decodedText)
+  // };
+  // const config: Html5QrcodeCameraScanConfig = {
+  //   fps: 10,
+  //   qrbox: { width: 250, height: 250 },
+  // };
 
+  // // If you want to prefer front camera
+  // html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback, undefined);
   useEffect(() => {
-    if (facingMode === 'user') {
-      const html5QrCode = new Html5Qrcode("reader-front-camera");
-      const qrCodeSuccessCallback: QrcodeSuccessCallback = (decodedText: string, decodedResult: Html5QrcodeResult) => {
-        /* handle success */
-        console.log(decodedResult, decodedText)
-      };
-      // const qrCodeErrorCallback: QrcodeErrorCallback = (
-      //   errorMessage: string,
-      //   error: Html5QrcodeError,
-      // ) => {
-      //   console.log(errorMessage, error);
-      // }
-      const config: Html5QrcodeCameraScanConfig = {
-        fps: 10,
-        qrbox: { width: 200, height: 200 },
-        disableFlip: false,
-      };
-
-      // If you want to prefer front camera
-      console.log('facing mode =>>', facingMode);
-      html5QrCode.start({ facingMode: 'user' }, config, qrCodeSuccessCallback, undefined);
-    } else if (facingMode === 'environment') {
-      const html5QrCode = new Html5Qrcode("reader-back-camera");
-      const qrCodeSuccessCallback: QrcodeSuccessCallback = (decodedText: string, decodedResult: Html5QrcodeResult) => {
-        /* handle success */
-        console.log(decodedResult, decodedText)
-      };
-      // const qrCodeErrorCallback: QrcodeErrorCallback = (
-      //   errorMessage: string,
-      //   error: Html5QrcodeError,
-      // ) => {
-      //   console.log(errorMessage, error);
-      // }
-      const config: Html5QrcodeCameraScanConfig = {
-        fps: 10,
-        qrbox: { width: 200, height: 200 },
-        disableFlip: false,
-      };
-
-      // If you want to prefer front camera
-      console.log('facing mode =>>', facingMode);
-      html5QrCode.start({ facingMode: 'environment' }, config, qrCodeSuccessCallback, undefined);
-    }
     console.log('hallo')
+    const html5QrCode = new Html5Qrcode(
+      "reader"
+    );
+    const qrCodeSuccessCallback: QrcodeSuccessCallback = (decodedText: string, decodedResult: Html5QrcodeResult) => {
+      /* handle success */
+      console.log(decodedResult, decodedText)
+    };
+    // const qrCodeErrorCallback: QrcodeErrorCallback = (
+    //   errorMessage: string,
+    //   error: Html5QrcodeError,
+    // ) => {
+    //   console.log(errorMessage, error);
+    // }
+    const config: Html5QrcodeCameraScanConfig = {
+      fps: 10,
+      qrbox: { width: 200, height: 200 },
+      disableFlip: false,
+    };
+
+    // If you want to prefer front camera
+    console.log('facing mode =>>', facingMode);
+    html5QrCode.start({ facingMode: facingMode }, config, qrCodeSuccessCallback, undefined);
   }, [facingMode]);
 
   return (
     <div>
       <div className="flex justify-center items-center mx-auto w-fit md:my-8 lg:my-16 p-1 bg-red-700 md:scale-125 lg:scale-150">
-        {
-          facingMode === 'user'
-            ? <div id="reader-front-camera" className='block w-[300px] mx-auto [transform:rotateY(180deg)]'></div>
-            : <div id="reader-back-camera" className='block w-[300px] mx-auto'></div>
-        }
         <div id="reader" className={clsx('block w-[300px] mx-auto', {
           '[transform:rotateY(180deg)]': facingMode === 'user'
         })}></div>

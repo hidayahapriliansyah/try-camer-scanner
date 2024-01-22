@@ -1,6 +1,7 @@
 import './App.css'
+import Scanner from './components/Scanner';
 // import VanillaCamera from "./components/VanillaCamera";
-import HTML5Try from "./components/HTML5Try";
+// import HTML5Try from "./components/HTML5Try";
 // import Html5QrcodePlugin from "./components/Html5QrcodePlugin";
 // import Html5Scanner from "./components/HTML5Scanner";
 
@@ -19,8 +20,9 @@ function App() {
     //   disableFlip={true}
     //   qrCodeSuccessCallback={onNewScanResult}
     // />
-    <HTML5Try />
+    // <HTML5Try />
     // <VanillaCamera />
+    <Scanner />
   );
 }
 
