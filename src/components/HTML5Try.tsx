@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { Html5Qrcode, Html5QrcodeCameraScanConfig, Html5QrcodeResult, QrcodeSuccessCallback } from "html5-qrcode";
+import clsx from "clsx";
 // import { Html5QrcodeError } from "html5-qrcode/esm/core";
 
 const HTML5Try = () => {
@@ -53,10 +54,12 @@ const HTML5Try = () => {
   return (
     <div>
       <div className="flex justify-center items-center mx-auto w-fit md:my-8 lg:my-16 p-1 bg-red-700 md:scale-125 lg:scale-150">
-        <div id="reader" className="block w-[300px] mx-auto [transform:rotateY(180deg)]"></div>
+        <div id="reader" className={clsx('block w-[300px] mx-auto', {
+          '[transform:rotateY(180deg)]': facingMode === 'user'
+        })}></div>
       </div>
-      <button disabled onClick={toggleFacingMode} className="mt-4 p-2 bg-blue-100">
-        Tombol ini didisable Toggle Camera ({facingMode === 'user' ? 'Depan' : 'Belakang'})
+      <button onClick={toggleFacingMode} className="mt-4 p-2 bg-blue-100 hover:bg-blue-600">
+        Tombol ini nyala Toggle Camera ({facingMode === 'user' ? 'Depan' : 'Belakang'})
       </button>
     </div>
   )
