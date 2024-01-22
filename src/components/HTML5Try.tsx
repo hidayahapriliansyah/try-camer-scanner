@@ -47,7 +47,7 @@ const HTML5Try = () => {
 
     // If you want to prefer front camera
     console.log('facing mode =>>', facingMode);
-    html5QrCode.start({ facingMode }, config, qrCodeSuccessCallback, undefined);
+    html5QrCode.start({ facingMode: 'environment' }, config, qrCodeSuccessCallback, undefined);
   }, [facingMode]);
 
   return (
@@ -56,7 +56,7 @@ const HTML5Try = () => {
         <div id="reader" className="block w-[300px] mx-auto [transform:rotateY(180deg)]"></div>
       </div>
       <button disabled onClick={toggleFacingMode} className="mt-4 p-2 bg-blue-100">
-        Toggle Camera ({facingMode === 'user' ? 'Front' : 'Back'})
+        Tombol ini didisable Toggle Camera ({facingMode === 'user' ? 'Front' : 'Back'})
       </button>
     </div>
   )
