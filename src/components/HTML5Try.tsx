@@ -4,10 +4,10 @@ import { Html5Qrcode, Html5QrcodeCameraScanConfig, Html5QrcodeResult, QrcodeSucc
 // import { Html5QrcodeError } from "html5-qrcode/esm/core";
 
 const HTML5Try = () => {
-  const [facingMode, setFacingMode] = useState<'user' | { exact: "environment" }>({ exact: "environment" });
+  const [facingMode, setFacingMode] = useState<'user' | 'environment'>('environment');
   const toggleFacingMode = () => {
     setFacingMode((prevFacingMode) =>
-      prevFacingMode === 'user' ? { exact: 'environment' } : 'user'
+      prevFacingMode === 'user' ? 'environment' : 'user'
     );
   };
   // const html5QrCode = new Html5Qrcode(
@@ -47,7 +47,7 @@ const HTML5Try = () => {
 
     // If you want to prefer front camera
     console.log('facing mode =>>', facingMode);
-    html5QrCode.start({ facingMode: 'environment' }, config, qrCodeSuccessCallback, undefined);
+    html5QrCode.start({ facingMode: facingMode }, config, qrCodeSuccessCallback, undefined);
   }, [facingMode]);
 
   return (
@@ -56,7 +56,7 @@ const HTML5Try = () => {
         <div id="reader" className="block w-[300px] mx-auto [transform:rotateY(180deg)]"></div>
       </div>
       <button disabled onClick={toggleFacingMode} className="mt-4 p-2 bg-blue-100">
-        Tombol ini didisable Toggle Camera ({facingMode === 'user' ? 'Front' : 'Back'})
+        Tombol ini didisable Toggle Camera ({facingMode === 'user' ? 'Depan' : 'Belakang'})
       </button>
     </div>
   )
