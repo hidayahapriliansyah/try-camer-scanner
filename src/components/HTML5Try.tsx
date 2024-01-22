@@ -4,7 +4,7 @@ import { Html5Qrcode, Html5QrcodeCameraScanConfig, Html5QrcodeResult, QrcodeSucc
 // import { Html5QrcodeError } from "html5-qrcode/esm/core";
 
 const HTML5Try = () => {
-  const [facingMode, setFacingMode] = useState<'user' | { exact: "environment" }>('user');
+  const [facingMode, setFacingMode] = useState<'user' | { exact: "environment" }>({ exact: "environment" });
   const toggleFacingMode = () => {
     setFacingMode((prevFacingMode) =>
       prevFacingMode === 'user' ? { exact: 'environment' } : 'user'
@@ -55,7 +55,7 @@ const HTML5Try = () => {
       <div className="flex justify-center items-center mx-auto w-fit md:my-8 lg:my-16 p-1 bg-red-700 md:scale-125 lg:scale-150">
         <div id="reader" className="block w-[300px] mx-auto [transform:rotateY(180deg)]"></div>
       </div>
-      <button onClick={toggleFacingMode} className="mt-4 p-2 bg-blue-100">
+      <button disabled onClick={toggleFacingMode} className="mt-4 p-2 bg-blue-100">
         Toggle Camera ({facingMode === 'user' ? 'Front' : 'Back'})
       </button>
     </div>
